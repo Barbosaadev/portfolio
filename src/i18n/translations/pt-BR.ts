@@ -202,15 +202,19 @@ export const ptBR = {
     headlineLines: ["ALGUMAS COISAS", "EU CONSTRUO", "SÓ POR CURIOSIDADE."],
     description:
       "Protótipos, ideias e ferramentas pequenas. Algumas viram produto. Outras ficam pelo caminho e deixam alguma coisa para a próxima.",
-    entries: [
-      {
-        tag: "META",
-        title: "Este site",
+    entries: {
+      senna: {
+        tag: "WEB / TRIBUTO",
+        title: "Ayrton Senna",
         description:
-          "Eu quis testar duas coisas aqui: trocar o idioma sem recarregar a página e fazer o próprio texto participar da transição.",
+          "Site-experiência sobre a biografia e o legado. Timeline, carros, circuitos — eu quis contar essa história em tela, não num artigo estático.",
+        hrefLabel: "Abrir o site",
+        imageAlt:
+          "Site tributo a Ayrton Senna, com o retrato e as estatísticas da carreira",
       },
-    ],
+    },
     comingSoon: "Tem mais coisa sendo construída.",
+    openExternal: "abre em nova aba",
   },
 
   diagnosis: {

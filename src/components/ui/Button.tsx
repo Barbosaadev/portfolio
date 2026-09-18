@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/cn";
+import { Magnetic } from "@/components/motion/Magnetic";
 import { ScrambleText } from "@/components/motion/ScrambleText";
 
 type ButtonVariant = "primary" | "outline" | "inverse";
@@ -22,6 +23,8 @@ interface ButtonLinkProps {
   /** posição na cascata do scramble na troca de idioma */
   cascadeOrder?: number;
   showArrow?: boolean;
+  /** deslocamento sutil rumo ao cursor (21st Magnetic). false desliga. */
+  magnetic?: boolean;
 }
 
 /**
@@ -35,8 +38,9 @@ export function ButtonLink({
   className,
   cascadeOrder = 3,
   showArrow = false,
+  magnetic = true,
 }: ButtonLinkProps) {
-  return (
+  const link = (
     <a
       href={href}
       className={cn(
@@ -56,4 +60,7 @@ export function ButtonLink({
       {showArrow && <span aria-hidden="true">→</span>}
     </a>
   );
+
+  if (!magnetic) return link;
+  return <Magnetic>{link}</Magnetic>;
 }

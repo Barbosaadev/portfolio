@@ -4,7 +4,9 @@ import { useState } from "react";
 import { cn } from "@/lib/cn";
 import { useT } from "@/i18n/LocaleProvider";
 import { siteConfig, contactHref } from "@/data/site";
+import { Magnetic } from "@/components/motion/Magnetic";
 import { ScrambleText } from "@/components/motion/ScrambleText";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { LangSwitch } from "./LangSwitch";
 
 interface NavItem {
@@ -24,7 +26,7 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b-2 border-(--color-border) bg-(--color-bg) text-(--color-ink)">
+    <header className="sticky top-0 z-50 bg-(--color-bg) text-(--color-ink)">
       <div className="container-site flex min-h-16 items-center justify-between gap-4">
         <a
           href="#top"
@@ -54,17 +56,21 @@ export function Header() {
 
         <div className="flex items-center gap-3">
           <LangSwitch />
-          <a
-            href={contactHref()}
-            className="label-mono hidden items-center border-2 border-(--color-border) bg-(--color-accent) px-4 py-2 font-semibold transition-colors duration-(--duration-fast) hover:bg-(--color-accent-strong) md:inline-flex"
-          >
-            <ScrambleText
-              text={t.nav.cta}
-              as="span"
-              intensity="subtle"
-              cascadeOrder={8}
-            />
-          </a>
+          <div className="hidden md:block">
+            <Magnetic>
+              <a
+                href={contactHref()}
+                className="label-mono inline-flex items-center border-2 border-(--color-border) bg-(--color-accent) px-4 py-2 font-semibold transition-colors duration-(--duration-fast) hover:bg-(--color-accent-strong)"
+              >
+                <ScrambleText
+                  text={t.nav.cta}
+                  as="span"
+                  intensity="subtle"
+                  cascadeOrder={8}
+                />
+              </a>
+            </Magnetic>
+          </div>
 
           {/* botão do menu mobile */}
           <button
@@ -79,12 +85,16 @@ export function Header() {
         </div>
       </div>
 
+      <div className="h-0.5 bg-(--color-border)" aria-hidden="true">
+        <ScrollProgress />
+      </div>
+
       {/* menu mobile: lista simples, sem mega menu */}
       <nav
         id="mobile-menu"
         aria-label="principal mobile"
         className={cn(
-          "border-t-2 border-(--color-border) bg-(--color-bg) md:hidden",
+          "bg-(--color-bg) md:hidden",
           open ? "block" : "hidden",
         )}
       >

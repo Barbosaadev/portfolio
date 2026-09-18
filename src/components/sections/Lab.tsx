@@ -1,17 +1,20 @@
 "use client";
 
+import Image from "next/image";
 import { useT } from "@/i18n/LocaleProvider";
+import { labItems } from "@/data/lab";
 import { siteConfig } from "@/data/site";
 import { Section } from "@/components/layout/Section";
 import { Eyebrow } from "@/components/typography/Eyebrow";
 import { DisplayHeading } from "@/components/typography/DisplayHeading";
 import { FadeSwap } from "@/components/motion/FadeSwap";
 import { Reveal } from "@/components/motion/Reveal";
+import { SpotCard } from "@/components/motion/SpotCard";
 import { Tag } from "@/components/ui/Tag";
 
 /**
- * LAB — experimentos e ferramentas. Estrutura extensível: para adicionar
- * um item, basta acrescentar uma entrada em `lab.entries` nos dicionários.
+ * LAB — experimentos e ferramentas. Estrutura extensível: copy em
+ * `lab.entries` nos dicionários, href/imagem em `data/lab.ts`.
  */
 export function Lab() {
   const t = useT();
@@ -28,21 +31,40 @@ export function Lab() {
       </Reveal>
 
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {t.lab.entries.map((entry, index) => (
-          <Reveal key={entry.title} delay={index * 0.06}>
-            <article className="flex h-full flex-col gap-4 border-2 border-(--color-border) bg-(--color-surface) p-6 transition-transform duration-(--duration-fast) ease-(--ease-out-quart) hover:-translate-y-1">
-              <Tag className="self-start bg-(--color-accent)">{entry.tag}</Tag>
-              <h3 className="display-caps text-display-sm">{entry.title}</h3>
-              <FadeSwap
-                text={entry.description}
-                className="text-sm leading-relaxed text-(--color-ink-muted)"
-              />
-            </article>
-          </Reveal>
-        ))}
+        {labItems.map((item, index) => {
+          const entry = t.lab.entries[item.dictKey];
+          return (
+            <Reveal key={item.dictKey} delay={index * 0.06} className="h-full">
+              <SpotCard href={item.href} srHint={t.lab.openExternal}>
+                <article className="flex h-full flex-col">
+                  <div className="relative aspect-16/10 overflow-hidden border-b-2 border-(--color-border)">
+                    <Image
+                      src={item.image}
+                      alt={entry.imageAlt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover object-top motion-safe:transition-transform motion-safe:duration-(--duration-slow) motion-safe:ease-(--ease-out-quart) motion-safe:group-hover:scale-[1.04]"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col gap-4 p-6">
+                    <Tag className="self-start bg-(--color-accent)">{entry.tag}</Tag>
+                    <h3 className="display-caps text-display-sm">{entry.title}</h3>
+                    <FadeSwap
+                      text={entry.description}
+                      className="text-sm leading-relaxed text-(--color-ink-muted)"
+                    />
+                    <p className="label-mono mt-auto pt-2 text-(--color-ink)">
+                      <FadeSwap as="span" text={entry.hrefLabel} />
+                      <span aria-hidden="true"> ↗</span>
+                    </p>
+                  </div>
+                </article>
+              </SpotCard>
+            </Reveal>
+          );
+        })}
 
-        {/* slot aberto: sinaliza que a prateleira continua crescendo */}
-        <Reveal delay={t.lab.entries.length * 0.06}>
+        <Reveal delay={labItems.length * 0.06} className="h-full">
           <div className="grid h-full min-h-40 place-items-center border-2 border-dashed border-(--color-border-soft) p-6">
             <FadeSwap
               text={t.lab.comingSoon}

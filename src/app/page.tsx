@@ -5,6 +5,7 @@ import { Diagnosis } from "@/components/sections/Diagnosis";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Hero } from "@/components/sections/Hero";
 import { HowIWork } from "@/components/sections/HowIWork";
+import { Lab } from "@/components/sections/Lab";
 import { Manifesto } from "@/components/sections/Manifesto";
 import { SelectedWork } from "@/components/sections/SelectedWork";
 import { StackCapabilities } from "@/components/sections/StackCapabilities";
@@ -23,7 +24,7 @@ export default function Home() {
         <SelectedWork />
         <BeforeAfter />
         <WhatIBuild />
-        {/* <Lab /> */}
+        <Lab />
         <Diagnosis />
         <HowIWork />
         <StackCapabilities />

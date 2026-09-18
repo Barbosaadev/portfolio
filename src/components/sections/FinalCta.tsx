@@ -3,6 +3,7 @@
 import { useT } from "@/i18n/LocaleProvider";
 import { siteConfig, contactHref } from "@/data/site";
 import { Section } from "@/components/layout/Section";
+import { Magnetic } from "@/components/motion/Magnetic";
 import { ScrambleText } from "@/components/motion/ScrambleText";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -35,18 +36,20 @@ export function FinalCta() {
       </Reveal>
 
       <Reveal delay={0.15}>
-        <a
-          href={contactHref()}
-          className="label-mono mt-12 inline-flex min-h-14 items-center gap-3 border-2 border-(--color-accent) bg-(--color-accent) px-10 py-4 text-base font-bold text-(--color-ink) transition-transform duration-(--duration-fast) ease-(--ease-out-quart) hover:scale-[1.03]"
-        >
-          <ScrambleText
-            text={t.finalCta.cta}
-            as="span"
-            intensity="subtle"
-            cascadeOrder={3}
-          />
-          <span aria-hidden="true">→</span>
-        </a>
+        <Magnetic strength={0.12} className="mt-12">
+          <a
+            href={contactHref()}
+            className="label-mono inline-flex min-h-14 items-center gap-3 border-2 border-(--color-accent) bg-(--color-accent) px-10 py-4 text-base font-bold text-(--color-ink)"
+          >
+            <ScrambleText
+              text={t.finalCta.cta}
+              as="span"
+              intensity="subtle"
+              cascadeOrder={3}
+            />
+            <span aria-hidden="true">→</span>
+          </a>
+        </Magnetic>
       </Reveal>
     </Section>
   );

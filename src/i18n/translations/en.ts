@@ -24,12 +24,11 @@ export const en: Dictionary = {
   hero: {
     eyebrow: "GUILHERME / SOFTWARE / AUTOMATION / WEB / AI",
     headlineLines: [
-      "I LIKE TAKING",
-      "ONE ANNOYING",
-      "PART OF THE JOB",
-      "AND GETTING IT",
-      "OUT OF THE",
-      "WAY.",
+      "HOW MUCH OF",
+      "YOUR DAY IS",
+      "TAKEN UP",
+      "BY ANNOYING",
+      "TASKS?",
     ],
     subheadline:
       "Sup! I'm Guilherme and I build systems, automations and tools (and sometimes I dismantle too).",
@@ -209,15 +208,19 @@ export const en: Dictionary = {
     headlineLines: ["SOME THINGS", "I BUILD", "JUST BECAUSE."],
     description:
       "Small prototypes, ideas and weird little tools. Some become products. Others disappear and leave something useful for the next one.",
-    entries: [
-      {
-        tag: "META",
-        title: "This site",
+    entries: {
+      senna: {
+        tag: "WEB / TRIBUTE",
+        title: "Ayrton Senna",
         description:
-          "I wanted to test two things here: switching languages without a page reload and making the text itself part of the transition.",
+          "A narrative site about the biography and the legacy. Timeline, cars, circuits — I wanted this story on a screen, not in a static article.",
+        hrefLabel: "Open the site",
+        imageAlt:
+          "Ayrton Senna tribute site, with the portrait and career statistics",
       },
-    ],
+    },
     comingSoon: "More things are being built.",
+    openExternal: "opens in a new tab",
   },
 
   diagnosis: {

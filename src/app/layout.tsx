@@ -1,7 +1,7 @@
+import { siteConfig } from "@/data/site";
+import { LocaleProvider } from "@/i18n/LocaleProvider";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { LocaleProvider } from "@/i18n/LocaleProvider";
-import { siteConfig } from "@/data/site";
 import "./globals.css";
 
 const fontDisplay = localFont({
@@ -25,27 +25,32 @@ const fontMono = localFont({
   display: "swap",
 });
 
-const title = "Guilherme - Software, Automation, Web, AI";
+const title = "Guilherme Barbosa - Software Engineer | React, React Native & TypeScript";
 const description =
-  "Eu transformo processos manuais, operações confusas e tarefas repetitivas em software simples.";
+  "Engenheiro de Software focado em Frontend, Mobile e ecossistema TypeScript. Especialista em React, React Native, arquitetura de monorepos e código em produção.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: title,
-    template: "%s - Guilherme",
+    template: "%s - Guilherme Barbosa",
   },
   description,
-  applicationName: "Guilherme",
-  authors: [{ name: siteConfig.name }],
+  applicationName: "Guilherme Barbosa",
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
   keywords: [
-    "software",
-    "automação",
-    "operações",
-    "ferramentas internas",
-    "integrações",
-    "IA aplicada",
+    "Software Engineer",
+    "Frontend Engineer",
+    "Mobile Engineer",
+    "React",
+    "React Native",
+    "TypeScript",
+    "Next.js",
+    "Turborepo",
+    "Clean Architecture",
+    "Fastify",
+    "Expo",
   ],
   alternates: {
     canonical: "/",
@@ -63,7 +68,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Guilherme - se uma pessoa precisa fazer isso todo dia, talvez o computador deveria.",
+        alt: "Guilherme Barbosa - Software Engineer | React, React Native & TypeScript",
       },
     ],
   },
@@ -91,10 +96,27 @@ export const viewport: Viewport = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: siteConfig.name,
-  jobTitle: "Software / Automation / Web / AI",
+  name: "Guilherme Barbosa",
+  jobTitle: "Software Engineer",
   url: siteConfig.url,
-  description,
+  sameAs: [
+    siteConfig.social.github,
+    siteConfig.social.linkedin,
+  ],
+  knowsAbout: [
+    "Software Engineering",
+    "Frontend Development",
+    "Mobile Development",
+    "React",
+    "React Native",
+    "TypeScript",
+    "Next.js",
+    "Turborepo",
+    "Fastify",
+    "NestJS",
+    "Automated Testing",
+    "Clean Architecture",
+  ],
 };
 
 export default function RootLayout({

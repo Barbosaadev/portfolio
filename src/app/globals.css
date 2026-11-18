@@ -6,6 +6,7 @@
 /* ------------------------------------------------------------------ */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: clamp(4.5rem, 8vh, 6rem);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -14,7 +14,7 @@ export function StackCapabilities() {
   const t = useT();
 
   return (
-    <Section bleed className="border-t-2 border-(--color-border)">
+    <Section id="stack" bleed className="border-t-2 border-(--color-border)">
       <div className="container-site">
         <Reveal className="space-y-6">
           <Eyebrow>{t.stack.eyebrow}</Eyebrow>

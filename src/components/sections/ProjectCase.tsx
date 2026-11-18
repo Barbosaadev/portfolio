@@ -29,11 +29,13 @@ function CaseFacts({ project }: { project: ProjectCaseProps["project"] }) {
     <dl className="grid gap-6 border-t-2 border-(--color-border) pt-6 md:grid-cols-3">
       {facts.map((fact) => (
         <div key={fact.label} className="space-y-2">
-          <dt className="label-mono text-(--color-ink-muted)">{fact.label}</dt>
+          <dt className="label-mono font-bold tracking-wider text-(--color-ink-muted)">
+            {fact.label}
+          </dt>
           <FadeSwap
             as="dd"
             text={fact.text}
-            className="text-sm leading-relaxed"
+            className="text-sm leading-relaxed text-(--color-ink)"
           />
         </div>
       ))}
@@ -44,9 +46,9 @@ function CaseFacts({ project }: { project: ProjectCaseProps["project"] }) {
 function CaseTech({ project }: { project: ProjectCaseProps["project"] }) {
   const t = useT();
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="label-mono text-(--color-ink-muted)">
-        {t.work.labels.tech}
+    <div className="flex flex-wrap items-center gap-2 pt-2">
+      <span className="label-mono font-semibold text-(--color-ink-muted)">
+        {t.work.labels.tech}:
       </span>
       {project.tech.map((tech) => (
         <Tag key={tech}>{tech}</Tag>
@@ -62,10 +64,10 @@ function CaseHeader({ project }: { project: ProjectCaseProps["project"] }) {
   return (
     <div className="space-y-5">
       <div className="label-mono flex flex-wrap items-center gap-x-4 gap-y-2 text-(--color-ink-muted)">
-        <span className="text-(--color-ink)">{project.index}</span>
+        <span className="font-bold text-(--color-ink)">{project.index}</span>
         <span>/</span>
-        <span>{copy.category}</span>
-        <span className="border border-(--color-border) bg-(--color-accent) px-2 py-0.5 font-semibold text-(--color-ink)">
+        <span className="font-semibold tracking-wider">{copy.category}</span>
+        <span className="border border-(--color-border) bg-(--color-accent) px-2 py-0.5 font-bold text-(--color-ink)">
           {t.work.status[project.status]}
         </span>
       </div>
@@ -83,7 +85,7 @@ function CaseHeader({ project }: { project: ProjectCaseProps["project"] }) {
 
       <FadeSwap
         text={copy.description}
-        className="max-w-xl text-base leading-relaxed text-(--color-ink-muted)"
+        className="max-w-2xl text-base leading-relaxed text-(--color-ink-muted)"
       />
 
       {project.status === "demo" && (
@@ -96,7 +98,7 @@ function CaseHeader({ project }: { project: ProjectCaseProps["project"] }) {
   );
 }
 
-/** Mini-case: apresentado pelo problema, nunca pela tecnologia. */
+/** Mini-case de engenharia: focado no problema real, solução arquitetural e contribuição comprovada. */
 export function ProjectCase({
   project,
   flip = false,
@@ -118,6 +120,7 @@ export function ProjectCase({
     return (
       <Reveal>
         <article
+          id={`case-${project.dictKey}`}
           className={`space-y-8 py-14 ${index === 0 ? "first:pt-0" : ""} md:py-20`}
         >
           <CaseHeader project={project} />
@@ -131,12 +134,15 @@ export function ProjectCase({
 
   return (
     <Reveal>
-      <article className="space-y-8 py-14 md:py-20">
+      <article
+        id={`case-${project.dictKey}`}
+        className="space-y-8 py-14 md:py-20"
+      >
         <div className={cn("grid items-start gap-8 md:grid-cols-2 md:gap-12")}>
-          <div className={cn(flip && "md:order-2")}>
+          <div className={cn("min-w-0", flip && "md:order-2")}>
             <CaseHeader project={project} />
           </div>
-          <div className={cn(flip && "md:order-1")}>{frame}</div>
+          <div className={cn("min-w-0", flip && "md:order-1")}>{frame}</div>
         </div>
         <CaseFacts project={project} />
         <CaseTech project={project} />

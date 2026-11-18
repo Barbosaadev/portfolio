@@ -44,7 +44,7 @@ export function ButtonLink({
     <a
       href={href}
       className={cn(
-        "inline-flex min-h-12 items-center justify-center gap-2 border-2 px-6 py-3",
+        "inline-flex w-full min-h-12 items-center justify-center gap-2 border-2 px-6 py-3",
         "label-mono font-semibold tracking-[0.14em]",
         "transition-colors duration-(--duration-fast) ease-(--ease-out-quart)",
         VARIANT_CLASS[variant],
@@ -62,5 +62,5 @@ export function ButtonLink({
   );
 
   if (!magnetic) return link;
-  return <Magnetic>{link}</Magnetic>;
+  return <Magnetic className={className}>{link}</Magnetic>;
 }

@@ -27,7 +27,7 @@ export function LangSwitch({ className }: { className?: string }) {
             aria-pressed={active}
             onClick={() => setLocale(option.locale)}
             className={cn(
-              "min-h-9 cursor-pointer px-3 py-1.5 transition-colors duration-(--duration-fast)",
+              "min-h-8 sm:min-h-9 cursor-pointer px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm transition-colors duration-(--duration-fast)",
               active
                 ? "bg-(--color-ink) text-(--color-bg)"
                 : "text-current/60 hover:text-current",

@@ -67,7 +67,7 @@ export function BeforeAfter() {
   const t = useT();
 
   return (
-    <Section tone="inverse">
+    <Section id="architecture" tone="inverse">
       <Reveal className="space-y-6">
         <Eyebrow className="text-(--color-inverse-ink-muted)">
           {t.beforeAfter.eyebrow}

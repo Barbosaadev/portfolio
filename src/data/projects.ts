@@ -18,45 +18,53 @@ export interface Project {
 }
 
 /**
- * Dados não-textuais dos projetos (a copy fica nos dicionários i18n).
- * Para adicionar um projeto: criar o bloco textual em translations/ e
- * acrescentar uma entrada aqui.
+ * Dados não-textuais dos projetos (a copy técnica e descrições ficam nos dicionários i18n).
+ * 5 cases selecionados com rigor técnico e conformidade com anonimização corporativa.
  */
 export const projects: Project[] = [
   {
-    dictKey: "reliora",
+    dictKey: "enterpriseMobile",
     index: "01",
     status: "production",
-    tech: ["TypeScript", "React", "Fastify", "Prisma", "PostgreSQL", "OpenAI", "WhatsApp API"],
+    tech: ["React Native", "Expo", "React 19", "TypeScript", "TanStack Query", "WebView Bridge", "MMKV", "Jest", "Biome"],
+    image: null,
+    imageAspect: "tall",
+    layout: "split",
+  },
+  {
+    dictKey: "enterpriseSistemas",
+    index: "02",
+    status: "production",
+    tech: ["Turborepo", "React", "TypeScript", "Vite", "Tailwind CSS", "TanStack Query", "ESLint AST", "Jest", "RTL"],
+    image: null,
+    imageAspect: "wide",
+    layout: "full",
+  },
+  {
+    dictKey: "atosPlatform",
+    index: "03",
+    status: "production",
+    tech: ["Next.js 16", "NestJS", "React Native", "Expo", "Turborepo", "Prisma", "PostgreSQL", "OpenAPI", "Orval", "Playwright"],
+    image: null,
+    imageAspect: "wide",
+    layout: "split",
+  },
+  {
+    dictKey: "clinicFlow",
+    index: "04",
+    status: "beta",
+    tech: ["Fastify 5", "TypeScript", "OpenAI API", "Prisma 7", "PostgreSQL", "Zod", "Cloudflare Workers", "Bun"],
     image: "/projects/reliora.png",
     imageAspect: "wide",
     layout: "full",
   },
   {
-    dictKey: "accounting",
-    index: "02",
+    dictKey: "documentFlow",
+    index: "05",
     status: "betaV2",
-    tech: ["TypeScript", "React", "Vite", "Tailwind CSS"],
+    tech: ["React 19", "TypeScript", "Vite", "Tailwind CSS", "Vitest", "Clean Architecture"],
     image: "/projects/accounting.png",
     imageAspect: "wide",
     layout: "split",
-  },
-  {
-    dictKey: "fieldQuotes",
-    index: "03",
-    status: "beta",
-    tech: ["TypeScript", "React Native", "Expo"],
-    image: "/projects/field-quotes.png",
-    imageAspect: "tall",
-    layout: "split",
-  },
-  {
-    dictKey: "hotel",
-    index: "04",
-    status: "demo",
-    tech: ["TypeScript", "Next.js", "Prisma", "SQLite", "Recharts"],
-    image: "/projects/hotel.png",
-    imageAspect: "wide",
-    layout: "full",
   },
 ];

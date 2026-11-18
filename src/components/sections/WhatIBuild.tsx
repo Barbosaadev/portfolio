@@ -1,6 +1,7 @@
 "use client";
 
 import { useT } from "@/i18n/LocaleProvider";
+import { siteConfig } from "@/data/site";
 import { Section } from "@/components/layout/Section";
 import { Eyebrow } from "@/components/typography/Eyebrow";
 import { DisplayHeading } from "@/components/typography/DisplayHeading";
@@ -12,7 +13,7 @@ export function WhatIBuild() {
   const t = useT();
 
   return (
-    <Section>
+    <Section id={siteConfig.anchors.capabilities.slice(1)}>
       <Reveal className="space-y-6">
         <Eyebrow>{t.whatIBuild.eyebrow}</Eyebrow>
         <DisplayHeading lines={t.whatIBuild.headlineLines} size="lg" />

@@ -1,30 +1,42 @@
 /**
- * Configuração central do site — contatos, âncoras e stack.
- *
- * PLACEHOLDERS DE CONTATO: preencha os valores abaixo quando definir os
- * canais. Tudo que aponta para contato no site lê daqui.
+ * Configuração central do site — contatos, âncoras, redes profissionais e stack.
  */
 export const siteConfig = {
-  name: "Guilherme",
+  name: "Guilherme Barbosa",
+  role: "Software Engineer | Frontend & Mobile",
   /** URL pública do site (usada em canonical/OG). */
   url: "https://guilherme-barbosa.pages.dev",
 
   contact: {
-    /** ex.: "https://wa.me/5511999999999" — deixe vazio para ocultar */
     whatsapp: "https://wa.me/5585994061349",
-    /** ex.: "mailto:oi@guilherme.dev" — deixe vazio para ocultar */
     email: "mailto:barbosadevcontato@gmail.com",
-    /** destino padrão dos CTAs enquanto os canais não são definidos */
     fallbackHref: "https://wa.me/5585994061349",
+  },
+
+  social: {
+    github: "https://github.com/Barbosaadev",
+    linkedin: "https://www.linkedin.com/in/guilherme-barbosadevv/",
+  },
+
+  resumes: {
+    pt: "/curriculo/curriculo-guilherme-barbosa-pt.pdf",
+    en: "/curriculo/resume-guilherme-barbosa-en.pdf",
   },
 
   anchors: {
     work: "#work",
-    lab: "#lab",
+    track: "#track",
+    capabilities: "#capabilities",
     how: "#how",
+    lab: "#lab",
     contact: "#contact",
   },
 } as const;
+
+/** Retorna a URL do currículo conforme o idioma ativo */
+export function getResumeUrl(locale: "pt-BR" | "en"): string {
+  return locale === "pt-BR" ? siteConfig.resumes.pt : siteConfig.resumes.en;
+}
 
 /** href efetivo dos CTAs de contato: WhatsApp > e-mail > âncora final */
 export function contactHref(): string {
@@ -35,20 +47,24 @@ export function contactHref(): string {
   );
 }
 
-/** Stack real — só tecnologias efetivamente usadas nos projetos. */
+/** Stack real — tecnologias centrais comprovadas nos projetos e sistemas em produção. */
 export const stack = [
   "TypeScript",
   "React",
-  "Next.js",
   "React Native",
-  "Node.js",
+  "Next.js",
+  "Turborepo",
+  "Expo",
   "Fastify",
+  "NestJS",
   "Prisma",
   "PostgreSQL",
-  "SQLite",
   "Tailwind CSS",
-  "GSAP",
-  "REST APIs",
+  "TanStack Query",
+  "Jest",
+  "Vitest",
+  "Playwright",
+  "ESLint AST",
   "Vite",
-  "Expo",
+  "GSAP",
 ] as const;

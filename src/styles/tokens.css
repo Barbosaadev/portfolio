@@ -27,7 +27,7 @@
   --color-inverse-bg: #12110c;
   --color-inverse-surface: #1c1b14;
   --color-inverse-ink: #f2efe6;
-  --color-inverse-ink-muted: #a5a190;
+  --color-inverse-ink-muted: #b6b2a2;
   --color-inverse-border: #33321f;
 
   /* ------------------------------------------------------------------ */
@@ -92,7 +92,7 @@
 :root {
   /* ritmo vertical entre seções */
   --section-py: clamp(4.5rem, 10vw, 9rem);
-  --container-px: clamp(1.25rem, 4vw, 4rem);
+  --container-px: clamp(1rem, 4vw, 4rem);
   --container-max: 90rem;
 
   /* scramble — intensidades (consumidas pelo useScramble)               */
